@@ -1,2 +1,2 @@
 # DS
-Data structures implementation.
+Data structures implementation from Metwally course using PHP.
