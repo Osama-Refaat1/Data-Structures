@@ -6,8 +6,8 @@ require 'stack.php';
 $stack = new Stack();
 
 $stack->push("First");
-$stack->push("Second");
-$stack->push("Third");
+$stack->push("first");
+
 
 echo "Peek: " . $stack->peek() . PHP_EOL;
 
