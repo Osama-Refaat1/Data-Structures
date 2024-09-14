@@ -4,11 +4,13 @@ class DLL
 {
     private ?DLL_Node $head;
     private ?DLL_Node $tail;
+    private int $size;
 
     public function __construct()
     {
         $this->head = null;
         $this->tail = null;
+        $this->size = 0;
     }
     public function insertAtBeginning($data)
     {
@@ -18,11 +20,13 @@ class DLL
             
             $this->head = $newNode;
             $this->tail = $newNode;
+            $this->size++;
             return;
         }
             $newNode->next = $this->head;
             $this->head->prev = $newNode;
             $this->head = $newNode;
+            $this->size++;
         
     }
 
@@ -34,6 +38,7 @@ class DLL
         {
             $this->head = $newNode;
             $this->tail = $newNode;
+            $this->size++;
             return;
         }
         else
@@ -41,6 +46,7 @@ class DLL
             $this->tail->next = $newNode;
             $newNode->prev = $this->tail;
             $this->tail = $newNode;
+            $this->size++;
         }
         
     }
@@ -70,6 +76,7 @@ public function insertAfter($existingData , $newData)
     }
 
     $newNode = new DLL_Node($newData);
+
     $newNode->next = $existingNode->next;
     $newNode->prev = $existingNode;
     $existingNode->next = $newNode;
@@ -81,7 +88,13 @@ public function insertAfter($existingData , $newData)
     {
         $this->tail = $newNode;
     }
+    $this->size++;
     
+}
+
+public function getFirst(): mixed
+{
+    return $this->head->data;
 }
 
 
@@ -97,6 +110,7 @@ public function deleteFromBeginning()
     {
         $this->tail = null;
     }
+    $this->size--;
 }
 
 
@@ -110,6 +124,7 @@ public function deleteFromEnd()
     {
         $this->head = null;
         $this->tail = null;
+        $this->size--;
         return;
     }
     $current = $this->head;
@@ -119,6 +134,7 @@ public function deleteFromEnd()
     }
     $current->next = null;
     $this->tail = $current;
+    $this->size--;
 }
 
 
@@ -132,6 +148,7 @@ public function deleteNode($data)
     if($this->head->data === $data)
     {
         $this->deleteFromBeginning();
+
         return;
     }
 
@@ -156,15 +173,21 @@ public function deleteNode($data)
     {
         $this->tail = $current->prev;
     }
+    $this->size--;
+}
+
+public function getSize() : int
+{
+    return $this->size;
 }
 
 
-public function traverse()
+public function traverse(callable $callback)
 {
     $current = $this->head;
     while($current != null)
     {
-        echo $current->data . "->";
+       $callback($current->data);
         $current = $current->next;
     }
 }
