@@ -7,7 +7,7 @@ $stack = new Stack();
 
 $stack->push("First");
 $stack->push("first");
-$stack->push("Third");
+
 
 echo "Peek: " . $stack->peek() . PHP_EOL;
 
