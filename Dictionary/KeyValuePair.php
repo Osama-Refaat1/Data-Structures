@@ -12,11 +12,11 @@ class KeyValuePair
 
     public function getKey()
     {
-        return $this->_key;
+        return $this->_key . PHP_EOL;
     }
     public function getValue()
     {
-        return $this->_value;
+        return $this->_value . PHP_EOL;
     }
     public function setValue($value)
     {
