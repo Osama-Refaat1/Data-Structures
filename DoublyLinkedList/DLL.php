@@ -100,18 +100,24 @@ public function getFirst(): mixed
 
 public function deleteFromBeginning()
 {
-    if($this->head == null)
-    {
-        throw new exception("The list is empty");
+    if ($this->head === null) {
+        throw new Exception("The list is empty.");
     }
-    $this->head->next->prev = null;
-    $this->head = $this->head->next;
-    if($this->head == null)
-    {
+    
+    $value = $this->head->data;
+
+    if ($this->head === $this->tail) {
+        $this->head = null;
         $this->tail = null;
+    } else {
+        $this->head = $this->head->next;
+        $this->head->prev = null;
     }
+
     $this->size--;
+    return $value;
 }
+
 
 
 public function deleteFromEnd()
