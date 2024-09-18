@@ -10,4 +10,4 @@ include 'DLL.php';
     // $doubleLinkedList->insertAfter(20, 40);
     // $doubleLinkedList->traverse();
     $doubleLinkedList->deleteNode(20);
-    $doubleLinkedList->traverse();
+    $doubleLinkedList->traverse($callback);
