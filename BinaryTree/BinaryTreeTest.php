@@ -5,16 +5,19 @@ require_once 'BinaryTree.php';
 
 
 $tree = new BinaryTree();
-$tree->insert(1);
-$tree->insert(2);
-$tree->insert(3);
-$tree->insert(4);
-$tree->insert(5);
-$tree->insert(6);
-$tree->insert(7);
+$tree->insert('A');
+$tree->insert('B');
+$tree->insert('C');
+$tree->insert('D');
+$tree->insert('E');
+$tree->insert('F');
+$tree->insert('G');
+$tree->insert('H');
+$tree->insert('I');
 
 
-
-
-echo "Binary Tree (Level-Order Traversal):\n";
+// $tree->print();
+$tree->delete('F');
 $tree->print();
+
+
