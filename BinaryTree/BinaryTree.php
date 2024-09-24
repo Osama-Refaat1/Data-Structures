@@ -70,7 +70,7 @@ public function print(){
     
 }
 
-private function internalHeight($_node): int {
+ function internalHeight($_node): int {
 if($_node == null) return 0;
 return 1 + max($this->internalHeight($_node->left), $this->internalHeight($_node->right));
 }
@@ -238,7 +238,7 @@ else{
 }
 
 //3.In-order traversal
-public function internalInOrder($_node){
+ function internalInOrder($_node){
     if($_node === null) return;
     $this->internalInOrder($_node->left);
     echo $_node->data . "->";
@@ -250,7 +250,7 @@ public function inOrder(){
 }
 
 //4.Post-order traversal
-public function internalPostOrder($_node){
+ function internalPostOrder($_node){
     if($_node === null) return;
     $this->internalPostOrder($_node->left);
     $this->internalPostOrder($_node->right);
